@@ -94,12 +94,16 @@ void FindToEat() {
             }
         }
         if (isEaten) {
+            player = player == 1 ? 2 : 1;
+            isEaten = false;
+            FindToEat();
             break;
         }
-    }    
+    }
 }
 
 void switchPlayer() {
+
     player = player == 1 ? 2 : 1;
     FindToEat();
 }
@@ -192,8 +196,6 @@ int main()
         map[col][row] = player;
         map[col_past][row_past] = 0;
         switchPlayer();
-        while(isEaten) switchPlayer();
-        
         isEaten = false;
     }
 }
