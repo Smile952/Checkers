@@ -45,6 +45,7 @@ bool inBorder(int x, int y) {
 
 void checkForEat(int& col, int& row) {
 
+<<<<<<< HEAD
     if (inBorder(col + 2, row + 2)) {
         if (map[col + 2][row + 2] == 0) {
             if (map[col + 1][row + 1] != player && map[col + 1][row + 1] != 0) {
@@ -83,6 +84,37 @@ void checkForEat(int& col, int& row) {
                 isEaten = true;
                 checkForEat(col, row);
             }
+=======
+    if (inBorder(col + 2, row + 2) && map[col + 2][row + 2] == 0) {
+        if (map[col + 1][row + 1] != player && map[col + 1][row + 1] != 0) {
+            col += 2; row += 2;
+            map[col - 1][row - 1] = 0;
+            isEaten = true;
+            checkForEat(col, row);
+        }
+    }
+    else if (inBorder(col - 2, row + 2) && map[col - 2][row + 2] == 0) {
+        if (map[col - 1][row + 1] != player && map[col - 1][row + 1] != 0) {
+            col -= 2; row += 2;
+            map[col + 1][row - 1] = 0;
+            isEaten = true;
+            checkForEat(col, row);
+        }    }
+    else if (inBorder(col + 2, row - 2) && map[col + 2][row - 2] == 0) {
+        if (map[col + 1][row - 1] != player && map[col + 1][row - 1] != 0) {
+            col += 2; row -= 2;
+            map[col - 1][row + 1] = 0;
+            isEaten = true;
+            checkForEat(col, row);
+        }
+    }
+    else if (inBorder(col - 2, row - 2) && map[col - 2][row - 2] == 0) {
+        if (map[col - 1][row - 1] != player && map[col - 1][row - 1] != 0) {
+            col -= 2; row -= 2;
+            map[col + 1][row + 1] = 0;
+            isEaten = true;
+            checkForEat(col, row);
+>>>>>>> 383d1cb8dce1f558f63536268579952076b1cde2
         }
     }
 }
@@ -99,12 +131,25 @@ void FindToEat() {
             if (isEaten) {
                 map[i][j] = player;
                 map[temp_i][temp_j] = 0;
+<<<<<<< HEAD
             }
         }
+=======
+                break;
+            }
+        }
+        if (isEaten) {
+            player = player == 1 ? 2 : 1;
+            isEaten = false;
+            FindToEat();
+            break;
+        }
+>>>>>>> 383d1cb8dce1f558f63536268579952076b1cde2
     }
 }
 
 void switchPlayer() {
+
     player = player == 1 ? 2 : 1;
     FindToEat();
 }
@@ -151,6 +196,7 @@ bool step(int type, int &col, int &row) {
         break;
     
     }
+    return false;
 }
 
 bool isCorrectCoord(int col, int row) {
@@ -175,6 +221,7 @@ void outputMap() {
     }
 }
 
+<<<<<<< HEAD
 
 void findToEat() {
     for (int i = 0; i < 8; i++) {
@@ -185,6 +232,8 @@ void findToEat() {
         }
     }
 }
+=======
+>>>>>>> 383d1cb8dce1f558f63536268579952076b1cde2
 
 //добавить два массива с коодинатами фишек для бота среди которых он выберет случайные и которыми он сможет сходить
 int main()
@@ -207,8 +256,11 @@ int main()
         map[col][row] = player;
         map[col_past][row_past] = 0;
         switchPlayer();
+<<<<<<< HEAD
         findToEat();
         if(isEaten) switchPlayer();
+=======
+>>>>>>> 383d1cb8dce1f558f63536268579952076b1cde2
         isEaten = false;
     }
 }
