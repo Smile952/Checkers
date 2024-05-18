@@ -1,4 +1,2 @@
-﻿  Checkers.cpp
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(185,50): warning C4101: temp_i: неиспользованная локальная переменная
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(154): warning C4715: step: значение возвращается не при всех путях выполнения
+﻿  LINK : не найден или не выполнена сборка C:\Users\Денис\source\repos\Checkers\x64\Debug\Checkers.exe при последней инкрементной компоновке; выполняется полная компоновка
   Checkers.vcxproj -> C:\Users\Денис\source\repos\Checkers\x64\Debug\Checkers.exe
