@@ -1,3 +1,4 @@
 ﻿  Checkers.cpp
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(85): warning C4715: step: значение возвращается не при всех путях выполнения
+C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(185,50): warning C4101: temp_i: неиспользованная локальная переменная
+C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(154): warning C4715: step: значение возвращается не при всех путях выполнения
   Checkers.vcxproj -> C:\Users\Денис\source\repos\Checkers\x64\Debug\Checkers.exe

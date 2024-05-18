@@ -36,6 +36,74 @@ void createMap() {
     }
 }
 
+bool inBorder(int x, int y) {
+    if (x < 8 && x > 0 && y < 8 && y > 0) {
+        return true;
+    }
+    return false;
+}
+
+void checkForEat(int& col, int& row) {
+
+    if (inBorder(col + 2, row + 2)) {
+        if (map[col + 2][row + 2] == 0) {
+            if (map[col + 1][row + 1] != player && map[col + 1][row + 1] != 0) {
+                col += 2; row += 2;
+                map[col - 1][row - 1] = 0;
+                isEaten = true;
+                checkForEat(col, row);
+            }
+        }
+    }
+    else if (inBorder(col - 2, row + 2)) {
+        if (map[col - 2][row + 2] == 0) {
+            if (map[col - 1][row + 1] != player && map[col - 1][row + 1] != 0) {
+                col -= 2; row += 2;
+                map[col + 1][row - 1] = 0;
+                isEaten = true;
+                checkForEat(col, row);
+            }
+        }
+    }
+    else if (inBorder(col + 2, row - 2)) {
+        if (map[col + 2][row - 2] != 0) {
+            if (map[col + 1][row - 1] != player && map[col + 1][row - 1] != 0) {
+                col += 2; row -= 2;
+                map[col - 1][row + 1] = 0;
+                isEaten = true;
+                checkForEat(col, row);
+            }
+        }
+    }
+    else if (inBorder(col - 2, row - 2)) {
+        if (map[col - 2][row - 2] != 0) {
+            if (map[col - 1][row - 1] != player && map[col - 1][row - 1] != 0) {
+                col -= 2; row -= 2;
+                map[col + 1][row + 1] = 0;
+                isEaten = true;
+                checkForEat(col, row);
+            }
+        }
+    }
+}
+
+void FindToEat() {
+    int temp_i, temp_j = 0;
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            temp_i = i;
+            temp_j = j;
+            if (map[i][j] == player) {
+                checkForEat(i, j);
+            }
+            if (isEaten) {
+                map[i][j] = player;
+                map[temp_i][temp_j] = 0;
+            }
+        }
+    }
+}
+
 void switchPlayer() {
     player = player == 1 ? 2 : 1;
     FindToEat();
@@ -107,73 +175,18 @@ void outputMap() {
     }
 }
 
-bool inBorder(int x, int y) {
-    if (x < 8 && x > 0 && y < 8 && y > 0) {
-        return true;
-    }
-    return false;
-}
 
-void FindToEat() {
-    int temp_i, temp_j = 0;
+void findToEat() {
     for (int i = 0; i < 8; i++) {
         for (int j = 0; j < 8; j++) {
-            temp_i = i;
-            temp_j = j;
             if (map[i][j] == player) {
                 checkForEat(i, j);
             }
-            if (isEaten) {
-                map[i][j] = player;
-                map[temp_i][temp_j] = 0;
-            }
-        }
-    }
-}
-void checkForEat(int &col, int &row) {
-    
-    if (inBorder(col + 2, row + 2)) {
-        if (map[col + 2][row + 2] == 0) {
-            if (map[col + 1][row + 1] != player && map[col+1][row+1] != 0) {
-                col += 2; row += 2;
-                map[col - 1][row - 1] = 0;
-                isEaten = true;
-                checkForEat(col, row);
-            }
-        }
-    }
-    else if (inBorder(col - 2, row + 2)) {
-        if (map[col - 2][row + 2] == 0) {
-            if (map[col - 1][row + 1] != player && map[col - 1][row + 1] != 0) {
-                col -= 2; row += 2;
-                map[col + 1][row - 1] = 0;
-                isEaten = true;
-                checkForEat(col, row);
-            }
-        }
-    }
-    else if (inBorder(col + 2, row - 2)) {
-        if (map[col + 2][row - 2] != 0) {
-            if (map[col + 1][row - 1] != player && map[col + 1][row - 1] != 0) {
-                col += 2; row -= 2;
-                map[col - 1][row + 1] = 0;
-                isEaten = true;
-                checkForEat(col, row);
-            }
-        }
-    }
-    else if (inBorder(col - 2, row - 2)) {
-        if (map[col - 2][row - 2] != 0) {
-            if (map[col - 1][row - 1] != player && map[col - 1][row - 1] != 0) {
-                col -= 2; row -= 2;
-                map[col + 1][row + 1] = 0;
-                isEaten = true;
-                checkForEat(col, row);
-            }
         }
     }
 }
 
+//добавить два массива с коодинатами фишек для бота среди которых он выберет случайные и которыми он сможет сходить
 int main()
 {
     createMap();
@@ -194,7 +207,8 @@ int main()
         map[col][row] = player;
         map[col_past][row_past] = 0;
         switchPlayer();
-        
+        findToEat();
+        if(isEaten) switchPlayer();
         isEaten = false;
     }
 }
