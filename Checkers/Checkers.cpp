@@ -1,4 +1,4 @@
-﻿#include <iostream>
+﻿﻿#include <iostream>
 #include <cmath>
 
 using namespace std;
@@ -45,44 +45,36 @@ bool inBorder(int x, int y) {
 
 void checkForEat(int& col, int& row) {
 
-    if (inBorder(col + 2, row + 2)) {
-        if (map[col + 2][row + 2] == 0) {
-            if (map[col + 1][row + 1] != player && map[col + 1][row + 1] != 0) {
-                col += 2; row += 2;
-                map[col - 1][row - 1] = 0;
-                isEaten = true;
-                checkForEat(col, row);
-            }
+    if (inBorder(col + 2, row + 2) && map[col + 2][row + 2] == 0) {
+        if (map[col + 1][row + 1] != player && map[col + 1][row + 1] != 0) {
+            col += 2; row += 2;
+            map[col - 1][row - 1] = 0;
+            isEaten = true;
+            checkForEat(col, row);
         }
     }
-    else if (inBorder(col - 2, row + 2)) {
-        if (map[col - 2][row + 2] == 0) {
-            if (map[col - 1][row + 1] != player && map[col - 1][row + 1] != 0) {
-                col -= 2; row += 2;
-                map[col + 1][row - 1] = 0;
-                isEaten = true;
-                checkForEat(col, row);
-            }
+    else if (inBorder(col - 2, row + 2) && map[col - 2][row + 2] == 0) {
+        if (map[col - 1][row + 1] != player && map[col - 1][row + 1] != 0) {
+            col -= 2; row += 2;
+            map[col + 1][row - 1] = 0;
+            isEaten = true;
+            checkForEat(col, row);
         }
     }
-    else if (inBorder(col + 2, row - 2)) {
-        if (map[col + 2][row - 2] != 0) {
-            if (map[col + 1][row - 1] != player && map[col + 1][row - 1] != 0) {
-                col += 2; row -= 2;
-                map[col - 1][row + 1] = 0;
-                isEaten = true;
-                checkForEat(col, row);
-            }
+    else if (inBorder(col + 2, row - 2) && map[col + 2][row - 2] == 0) {
+        if (map[col + 1][row - 1] != player && map[col + 1][row - 1] != 0) {
+            col += 2; row -= 2;
+            map[col - 1][row + 1] = 0;
+            isEaten = true;
+            checkForEat(col, row);
         }
     }
-    else if (inBorder(col - 2, row - 2)) {
-        if (map[col - 2][row - 2] != 0) {
-            if (map[col - 1][row - 1] != player && map[col - 1][row - 1] != 0) {
-                col -= 2; row -= 2;
-                map[col + 1][row + 1] = 0;
-                isEaten = true;
-                checkForEat(col, row);
-            }
+    else if (inBorder(col - 2, row - 2) && map[col - 2][row - 2] == 0) {
+        if (map[col - 1][row - 1] != player && map[col - 1][row - 1] != 0) {
+            col -= 2; row -= 2;
+            map[col + 1][row + 1] = 0;
+            isEaten = true;
+            checkForEat(col, row);
         }
     }
 }
@@ -99,7 +91,11 @@ void FindToEat() {
             if (isEaten) {
                 map[i][j] = player;
                 map[temp_i][temp_j] = 0;
+                break;
             }
+        }
+        if (isEaten) {
+            break;
         }
     }
 }
@@ -114,7 +110,7 @@ bool isCorrectStep(int col, int row) {
     return false;
 }
 
-bool step(int type, int &col, int &row) {
+bool step(int type, int& col, int& row) {
     int x = col; int y = row;
     switch (type) {
     case(0):
@@ -149,8 +145,9 @@ bool step(int type, int &col, int &row) {
         else cout << "Uncorrect step" << "\n";
         return false;
         break;
-    
+
     }
+    return false;
 }
 
 bool isCorrectCoord(int col, int row) {
@@ -176,17 +173,6 @@ void outputMap() {
 }
 
 
-void findToEat() {
-    for (int i = 0; i < 8; i++) {
-        for (int j = 0; j < 8; j++) {
-            if (map[i][j] == player) {
-                checkForEat(i, j);
-            }
-        }
-    }
-}
-
-//добавить два массива с коодинатами фишек для бота среди которых он выберет случайные и которыми он сможет сходить
 int main()
 {
     createMap();
@@ -198,7 +184,7 @@ int main()
             cout << "Uncorrect coord for figure" << "\n";
             cin >> col >> row;
         }
-        col_past = col; 
+        col_past = col;
         row_past = row;
         cin >> step_type;
         while (!step(step_type, col, row)) {
@@ -207,8 +193,8 @@ int main()
         map[col][row] = player;
         map[col_past][row_past] = 0;
         switchPlayer();
-        findToEat();
-        if(isEaten) switchPlayer();
+        while (isEaten) switchPlayer();
+
         isEaten = false;
     }
 }
