@@ -1,15 +1,4 @@
-<<<<<<< HEAD
 ﻿  Checkers.cpp
 C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(1,9): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(217,50): warning C4101: temp_i: неиспользованная локальная переменная
   Checkers.vcxproj -> C:\Users\Денис\source\repos\Checkers\x64\Debug\Checkers.exe
-=======
-<<<<<<< HEAD
-﻿  LINK : не найден или не выполнена сборка C:\Users\Денис\source\repos\Checkers\x64\Debug\Checkers.exe при последней инкрементной компоновке; выполняется полная компоновка
-  Checkers.vcxproj -> C:\Users\Денис\source\repos\Checkers\x64\Debug\Checkers.exe
-=======
-﻿  Checkers.cpp
-C:\Users\ISIT_LAB3\source\repos\Checkers\Checkers\Checkers.cpp(184,50): warning C4101: temp_i: неиспользованная локальная переменная
-  Checkers.vcxproj -> C:\Users\ISIT_LAB3\source\repos\Checkers\x64\Debug\Checkers.exe
->>>>>>> 383d1cb8dce1f558f63536268579952076b1cde2
->>>>>>> second
