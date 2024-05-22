@@ -46,6 +46,7 @@ bool inBorder(int x, int y) {
 }
 
 void checkForEat(int& col, int& row) {
+<<<<<<< HEAD
     if (inBorder(col + 2, row + 2) && map[col + 2][row + 2] == 0 && map[col + 1][row + 1] != player && map[col + 1][row + 1] != 0) {
         map[col + 1][row + 1] = 0;
         col += 2; row += 2;
@@ -69,6 +70,80 @@ void checkForEat(int& col, int& row) {
         col -= 2; row -= 2;
         isEaten = true;
         checkForEat(col, row);
+=======
+
+<<<<<<< HEAD
+    if (inBorder(col + 2, row + 2)) {
+        if (map[col + 2][row + 2] == 0) {
+            if (map[col + 1][row + 1] != player && map[col + 1][row + 1] != 0) {
+                col += 2; row += 2;
+                map[col - 1][row - 1] = 0;
+                isEaten = true;
+                checkForEat(col, row);
+            }
+        }
+    }
+    else if (inBorder(col - 2, row + 2)) {
+        if (map[col - 2][row + 2] == 0) {
+            if (map[col - 1][row + 1] != player && map[col - 1][row + 1] != 0) {
+                col -= 2; row += 2;
+                map[col + 1][row - 1] = 0;
+                isEaten = true;
+                checkForEat(col, row);
+            }
+        }
+    }
+    else if (inBorder(col + 2, row - 2)) {
+        if (map[col + 2][row - 2] != 0) {
+            if (map[col + 1][row - 1] != player && map[col + 1][row - 1] != 0) {
+                col += 2; row -= 2;
+                map[col - 1][row + 1] = 0;
+                isEaten = true;
+                checkForEat(col, row);
+            }
+        }
+    }
+    else if (inBorder(col - 2, row - 2)) {
+        if (map[col - 2][row - 2] != 0) {
+            if (map[col - 1][row - 1] != player && map[col - 1][row - 1] != 0) {
+                col -= 2; row -= 2;
+                map[col + 1][row + 1] = 0;
+                isEaten = true;
+                checkForEat(col, row);
+            }
+=======
+    if (inBorder(col + 2, row + 2) && map[col + 2][row + 2] == 0) {
+        if (map[col + 1][row + 1] != player && map[col + 1][row + 1] != 0) {
+            col += 2; row += 2;
+            map[col - 1][row - 1] = 0;
+            isEaten = true;
+            checkForEat(col, row);
+        }
+    }
+    else if (inBorder(col - 2, row + 2) && map[col - 2][row + 2] == 0) {
+        if (map[col - 1][row + 1] != player && map[col - 1][row + 1] != 0) {
+            col -= 2; row += 2;
+            map[col + 1][row - 1] = 0;
+            isEaten = true;
+            checkForEat(col, row);
+        }    }
+    else if (inBorder(col + 2, row - 2) && map[col + 2][row - 2] == 0) {
+        if (map[col + 1][row - 1] != player && map[col + 1][row - 1] != 0) {
+            col += 2; row -= 2;
+            map[col - 1][row + 1] = 0;
+            isEaten = true;
+            checkForEat(col, row);
+        }
+    }
+    else if (inBorder(col - 2, row - 2) && map[col - 2][row - 2] == 0) {
+        if (map[col - 1][row - 1] != player && map[col - 1][row - 1] != 0) {
+            col -= 2; row -= 2;
+            map[col + 1][row + 1] = 0;
+            isEaten = true;
+            checkForEat(col, row);
+>>>>>>> 383d1cb8dce1f558f63536268579952076b1cde2
+        }
+>>>>>>> second
     }
 }
 
@@ -84,6 +159,13 @@ void FindToEat() {
             if (isEaten) {
                 map[i][j] = player;
                 map[temp_i][temp_j] = 0;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            }
+        }
+=======
+>>>>>>> second
                 break;
             }
         }
@@ -93,6 +175,10 @@ void FindToEat() {
             FindToEat();
             break;
         }
+<<<<<<< HEAD
+=======
+>>>>>>> 383d1cb8dce1f558f63536268579952076b1cde2
+>>>>>>> second
     }
 }
 
@@ -169,6 +255,7 @@ void outputMap() {
     }
 }
 
+<<<<<<< HEAD
 void canBotStep(int col, int row) {
     if (inBorder(col + 1, row + 1) && map[col + 1][row + 1] == 0) {
         botStepsFrom_x[botAmountSteps] = col;
@@ -176,6 +263,9 @@ void canBotStep(int col, int row) {
         botStepsTo_x[botAmountSteps] = col + 1;
         botStepsTo_y[botAmountSteps] = row + 1;
         botAmountSteps++;
+=======
+<<<<<<< HEAD
+>>>>>>> second
 
     }
 
@@ -198,6 +288,11 @@ void createBotListSteps() {
         }
     }
 }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 383d1cb8dce1f558f63536268579952076b1cde2
+>>>>>>> second
 
 int getRandomBotStep() {
     return rand() % botAmountSteps;
@@ -242,6 +337,17 @@ int main()
             botAmountSteps = 0;
             outputMap();
         }
+<<<<<<< HEAD
+=======
+        map[col][row] = player;
+        map[col_past][row_past] = 0;
+        switchPlayer();
+<<<<<<< HEAD
+        findToEat();
+        if(isEaten) switchPlayer();
+=======
+>>>>>>> 383d1cb8dce1f558f63536268579952076b1cde2
+>>>>>>> second
         isEaten = false;
         switchPlayer();
         cout << endl;
