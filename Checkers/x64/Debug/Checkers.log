@@ -1,28 +1,4 @@
 ﻿  Checkers.cpp
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(1,4): error C2014: команда препроцессора не должна начинаться с пробела
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\sal.h(2361,1): error C2144: синтаксическая ошибка: перед "int" требуется ";"
-  (компиляция исходного файла "Checkers.cpp")
-  
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\sal.h(2361,8): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
-  (компиляция исходного файла "Checkers.cpp")
-  
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(121,14): error C2065: cout: необъявленный идентификатор
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(129,14): error C2065: cout: необъявленный идентификатор
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(137,14): error C2065: cout: необъявленный идентификатор
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(145,14): error C2065: cout: необъявленный идентификатор
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(166,5): error C2065: cout: необъявленный идентификатор
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(169,18): error C2039: "cout": не является членом "std".
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\cmath(713,1):
-   см. объявление "std"
-  
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(169,18): error C2065: cout: необъявленный идентификатор
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(171,14): error C2039: "cout": не является членом "std".
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.38.33130\include\cmath(713,1):
-   см. объявление "std"
-  
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(171,14): error C2065: cout: необъявленный идентификатор
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(182,9): error C2065: cin: необъявленный идентификатор
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(184,13): error C2065: cout: необъявленный идентификатор
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(185,13): error C2065: cin: необъявленный идентификатор
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(189,9): error C2065: cin: необъявленный идентификатор
-C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(191,13): error C2065: cin: необъявленный идентификатор
+C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(1,9): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
+C:\Users\Денис\source\repos\Checkers\Checkers\Checkers.cpp(217,50): warning C4101: temp_i: неиспользованная локальная переменная
+  Checkers.vcxproj -> C:\Users\Денис\source\repos\Checkers\x64\Debug\Checkers.exe
